@@ -11,7 +11,9 @@ struct ProfileEditView: View {
     @State private var biography: String = "Lorem ipsum dolor sit amet..."
     @State private var contactInfo: String = "smith-john@gmail.com\n+21 567 839 3478\nNevoyak street, Haga, No:2"
     
+    @EnvironmentObject var coordinator: AppCoordinator
     @StateObject private var viewModel = ProfileEditViewModel()
+    let user: User
     var body: some View {
         VStack(spacing: 20) {
             // Navigation Bar

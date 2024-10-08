@@ -11,7 +11,8 @@ struct ProfileView: View {
     var userName: String = "Anna Smith"
     var biography: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum laoreet metus quis iaculis..."
     var contactInfo: String = "smith-john@gmail.com\n+21 567 839 3478\nNevoyak street, Haga, No:2"
-    
+    let user: User
+    @EnvironmentObject var coordinator: AppCoordinator
     var body: some View {
         VStack(spacing: 20) {
             // Navigation Bar

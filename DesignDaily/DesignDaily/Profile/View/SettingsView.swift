@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     let options = ["Support/Request", "Share the App", "Privacy Policy", "Log Out"]
     
+    @EnvironmentObject var coordinator: AppCoordinator
     @StateObject private var viewModel = SettingsViewModel()
     var body: some View {
         VStack(spacing: 20) {

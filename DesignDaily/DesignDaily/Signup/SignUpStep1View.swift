@@ -7,46 +7,69 @@
 
 import SwiftUI
 
-struct SignUpStep1View: View {
-    @ObservedObject var viewModel: SignUpViewModel
-    
+struct SignUpStep1View<ViewModel: SignUpViewModelProtocol>: View {
+    @StateObject private var viewModel: ViewModel
+    @EnvironmentObject var coordinator: AppCoordinator
+
+    init(viewModel: ViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
         ZStack {
             Color.black
                 .ignoresSafeArea()
-            
+
             VStack(spacing: 20) {
                 Spacer()
-                
+
                 Text("DesignDaily")
                     .font(.largeTitle)
                     .foregroundColor(.white)
-                
+
                 Group {
                     TextField("full name", text: $viewModel.fullName)
-                    TextField("phone number", text: $viewModel.phoneNumber)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     TextField("e-mail", text: $viewModel.email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     SecureField("password", text: $viewModel.password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 .padding()
-                .frame(width: 233, height: 43)
                 .background(Color.white)
                 .cornerRadius(20)
-                
+                .padding(.horizontal, 40)
+
+                if viewModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                }
+
+                if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                }
+
                 Spacer()
-                
-                NavigationLink(destination: SignUpStep2View(viewModel: viewModel)) {
+
+                Button(action: {
+                    // Proceed to next step
+                    coordinator.navigate(to: .signUpStep2)
+                }) {
                     Text("next")
                         .frame(width: 114, height: 43)
                         .background(Color.white)
                         .foregroundColor(.black)
                         .cornerRadius(21.5)
                 }
+                .disabled(viewModel.isLoading)
                 .padding(.top, 20)
-                
+
                 Spacer()
-                
-                NavigationLink(destination: LoginView()) {
+
+                Button(action: {
+                    coordinator.navigate(to: .login)
+                }) {
                     Text("Do you have an account? Login!")
                         .foregroundColor(.white)
                 }

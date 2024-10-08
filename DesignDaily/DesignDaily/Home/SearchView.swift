@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
     let categories = ["Modernism", "Maximalism", "Bauhaus", "Minimalism", "Art Nouveau", "De Stijl"]
-    
+    @EnvironmentObject var coordinator: AppCoordinator
     var body: some View {
         VStack(spacing: 20) {
             // Navigation Bar

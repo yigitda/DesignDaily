@@ -13,14 +13,9 @@ enum Destination: Hashable {
     case signUpStep2
     case listsView
     case productDetail(Product)
-    case profileEditView(User)
-    case settingsView
-}
-
-enum MainTab: Hashable {
-    case home
     case searchView
     case profileView(User)
-    case favotites
+    case profileEditView(User)
+    case settingsView
 }
 

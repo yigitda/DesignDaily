@@ -5,24 +5,43 @@
 //  Created by Yigit Dayı on 8.10.2024.
 //
 
+// BottomNavigationView.swift
+
 import SwiftUI
 
 struct BottomNavigationView: View {
+    @EnvironmentObject var coordinator: AppCoordinator
+    
     var body: some View {
         HStack {
             Spacer()
-            Image(systemName: "house.fill")
+            Button(action: {
+                coordinator.rootView = .mainTabs(.home)
+            }) {
+                Image(systemName: "house.fill")
+            }
             Spacer()
-            Image(systemName: "magnifyingglass")
+            Button(action: {
+                coordinator.rootView = .mainTabs(.search)
+            }) {
+                Image(systemName: "magnifyingglass")
+            }
             Spacer()
-            Image(systemName: "heart")
+            Button(action: {
+                coordinator.rootView = .mainTabs(.favorites)
+            }) {
+                Image(systemName: "heart.fill")
+            }
             Spacer()
-            Image(systemName: "person.crop.circle")
+            Button(action: {
+                coordinator.rootView = .mainTabs(.profile)
+            }) {
+                Image(systemName: "person.crop.circle")
+            }
             Spacer()
         }
         .padding()
-        .background(Color.black)
-        .foregroundColor(.white)
+        .background(Color.white)
     }
 }
 

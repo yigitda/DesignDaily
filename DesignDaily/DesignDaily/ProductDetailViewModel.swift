@@ -18,7 +18,18 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
     init(productId: UUID, productService: ProductServiceProtocol = ProductService()) {
         self.productId = productId
         self.productService = productService
-        self.product = Product(id: productId, name: "", imageName: "", details: "", description: "")
+        // Initialize with empty/default values
+        self.product = Product(
+            id: productId,
+            name: "",
+            imageName: "",
+            designerNames: "",
+            date: "",
+            style: "",
+            size: "",
+            materials: "",
+            description: ""
+        )
     }
 
     func fetchProductDetails() async {
@@ -32,3 +43,4 @@ class ProductDetailViewModel: ProductDetailViewModelProtocol {
         }
     }
 }
+

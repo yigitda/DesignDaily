@@ -13,15 +13,35 @@ class ProductService: ProductServiceProtocol {
         try await Task.sleep(nanoseconds: 1_000_000_000)
         // Return sample data
         return [
-            Product(id: UUID(), name: "Barcelona Chair", imageName: "barcelona-chair", details: "Details about Barcelona Chair", description: "Description of Barcelona Chair"),
-            Product(id: UUID(), name: "Eames Lounge Chair", imageName: "eames-lounge-chair", details: "Details about Eames Lounge Chair", description: "Description of Eames Lounge Chair")
+            Product(
+                id: UUID(),
+                name: "Barcelona Chair",
+                imageName: "barcelona-chair",
+                designerNames: "Ludwig Mies van der Rohe",
+                date: "1929",
+                style: "Modernism",
+                size: "75 x 75 x 75 cm",
+                materials: "Leather, Stainless Steel",
+                description: "The Barcelona Chair is an icon of modern design."
+            ),
+            // Add more products as needed
         ]
     }
 
     func fetchProductDetails(productId: UUID) async throws -> Product {
-        // Simulate network delay
-        try await Task.sleep(nanoseconds: 500_000_000)
-        // Return sample product details
-        return Product(id: productId, name: "Sample Product", imageName: "sample-image", details: "Sample details", description: "Sample description")
+        // Fetch the product details based on the productId
+        // For simplicity, return a sample product
+        return Product(
+            id: productId,
+            name: "Barcelona Chair",
+            imageName: "barcelona-chair",
+            designerNames: "Ludwig Mies van der Rohe",
+            date: "1929",
+            style: "Modernism",
+            size: "75 x 75 x 75 cm",
+            materials: "Leather, Stainless Steel",
+            description: "The Barcelona Chair is an icon of modern design."
+        )
     }
 }
+

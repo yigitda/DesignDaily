@@ -11,7 +11,7 @@ struct CoordinatorView: View {
     @EnvironmentObject var coordinator: AppCoordinator
 
     var body: some View {
-        NavigationStack(path: $coordinator.path) {
+        NavigationStack(path: $coordinator.rootPath) {
             destinationView(for: coordinator.rootView)
                 .navigationDestination(for: Destination.self) { destination in
                     destinationView(for: destination)
@@ -31,25 +31,18 @@ struct CoordinatorView: View {
         case .signUpStep2:
             SignUpStep2View(viewModel: SignUpViewModel(userService: coordinator.userService, coordinator: coordinator))
                 .environmentObject(coordinator)
-        case .listsView:
-            ListsView(viewModel: ListsViewModel(productService: coordinator.productService))
-                .environmentObject(coordinator)
         case .productDetail(let product):
-            let viewModel = ProductDetailViewModel(productId: product.id, productService: coordinator.productService)
-            ProductDetailView(viewModel: viewModel)
-                .environmentObject(coordinator)
-        case .searchView:
-            SearchView()
-                .environmentObject(coordinator)
-        case .profileView(let user):
-            ProfileView(user: user)
+            let viewModel = ProductDetailViewModel(productId: product.id )
+                    ProductDetailView(viewModel: viewModel)
                 .environmentObject(coordinator)
         case .profileEditView(let user):
-            ProfileEditView(user: user)
-                .environmentObject(coordinator)
+                    ProfileEditView(user: user)
+                        .environmentObject(coordinator)
+        case .mainTabs(let selectedTab):
+                    MainTabView()
+                        .environmentObject(coordinator)
         case .settingsView:
-            SettingsView()
-                .environmentObject(coordinator)
+            SettingsView().environmentObject(coordinator)
         }
     }
 }

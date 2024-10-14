@@ -8,59 +8,69 @@
 import SwiftUI
 
 struct SearchView: View {
-    let categories = ["Modernism", "Maximalism", "Bauhaus", "Minimalism", "Art Nouveau", "De Stijl"]
     @EnvironmentObject var coordinator: AppCoordinator
+    @State private var activeFilters: [String] = ["eclectic", "age", "cat", "dog"]
+    let categories = ["Modernism", "Maximalism", "Minimalism", "Bauhaus", "Art Nouveau", "De Stijl"]
+
     var body: some View {
-        VStack(spacing: 20) {
-            // Navigation Bar
-            HStack {
-                Text("DesignDaily")
-                    .font(.title)
-                    .fontWeight(.bold)
-                Spacer()
-                Image(systemName: "line.horizontal.3")
-                Spacer()
-                Image(systemName: "magnifyingglass")
-            }
-            .padding()
-            
-            ScrollView {
-                // Filter Section
-                HStack {
-                    Image(systemName: "slider.horizontal.3")
-                    Spacer()
-                    Text("Filter tags")
-                    Spacer()
+        VStack(spacing: 0) {
+            // Header
+            TopNavigationBar(title: "DesignDaily")
+                .background(Color.black)
+                .foregroundColor(.white)
+
+            // Filter Tags
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(activeFilters, id: \.self) { filter in
+                        HStack {
+                            Text(filter)
+                                .foregroundColor(.white)
+                            Button(action: {
+                                // Remove filter action
+                                activeFilters.removeAll { $0 == filter }
+                            }) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.gray)
+                        .cornerRadius(20)
+                    }
                 }
-                .padding()
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(8)
-                .padding([.horizontal, .bottom])
-                
-                // Category Grid
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))], spacing: 20) {
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+            }
+            .background(Color.black)
+
+            // Categories Grid
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))], spacing: 16) {
                     ForEach(categories, id: \.self) { category in
                         VStack {
-                            Image(category.lowercased()) // Replace with actual image assets
+                            Image(category.lowercased()) // Ensure you have corresponding images
                                 .resizable()
                                 .scaledToFill()
                                 .frame(height: 100)
                                 .clipped()
                             Text(category)
                                 .font(.headline)
+                                .padding(.top, 8)
                         }
-                        .frame(maxWidth: .infinity)
                         .background(Color.white)
                         .cornerRadius(12)
                         .shadow(radius: 2)
+                        .onTapGesture {
+                            // Handle category selection
+                        }
                     }
                 }
-                .padding(.horizontal)
+                .padding()
             }
 
-            Spacer()
-            
-            // Bottom Navigation
+            // Bottom Navigation Bar
             BottomNavigationView()
         }
         .background(Color.white)

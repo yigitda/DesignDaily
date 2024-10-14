@@ -11,6 +11,10 @@ struct Product: Identifiable, Hashable {
     let id: UUID
     let name: String
     let imageName: String
-    let details: String
+    let designerNames: String
+    let date: String
+    let style: String
+    let size: String
+    let materials: String
     let description: String
 }

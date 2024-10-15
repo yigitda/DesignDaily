@@ -86,8 +86,6 @@ struct ProfileView: View {
                 .padding(.top, 16)
             }
 
-            // Bottom Navigation Bar
-            BottomNavigationView()
         }
         .background(Color.white)
         .ignoresSafeArea()

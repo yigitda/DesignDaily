@@ -11,33 +11,39 @@ struct MainTabView: View {
     @State private var selectedTab: MainTab = .home
 
     var body: some View {
-        TabView(selection: $selectedTab) {
-            homeTab
-                .tabItem {
-                    Label("Home", systemImage: "house.fill")
+            TabView(selection: $selectedTab) {
+                Group {
+                    homeTab
+                        .tabItem {
+                            Label("", image: selectedTab == .home ? "D_selected" : "D")
+                        }
+                        .tag(MainTab.home)
+                    
+                    searchTab
+                        .tabItem {
+                            Label("", image: selectedTab == .search ? "Search_selected" : "Search")
+                        }
+                        .tag(MainTab.search)
+                    
+                    favoritesTab
+                        .tabItem {
+                            Label("", image: selectedTab == .favorites ? "Heart_selected" : "Heart")
+                        }
+                        .tag(MainTab.favorites)
+                    
+                    profileTab
+                        .tabItem {
+                            Label("", image: selectedTab == .profile ? "Profile_selected" : "Profile")
+                        }
+                        .tag(MainTab.profile)
                 }
-                .tag(MainTab.home)
-
-            searchTab
-                .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
-                }
-                .tag(MainTab.search)
-
-            favoritesTab
-                .tabItem {
-                    Label("Favorites", systemImage: "heart.fill")
-                }
-                .tag(MainTab.favorites)
-
-            profileTab
-                .tabItem {
-                    Label("Profile", systemImage: "person.crop.circle")
-                }
-                .tag(MainTab.profile)
+                .padding()
+                .background(Color.black)
+            }
+            .edgesIgnoringSafeArea(.bottom)
+            .background(Color.black.edgesIgnoringSafeArea(.all))
         }
-    }
-
+    
     var homeTab: some View {
         NavigationStack(path: $coordinator.homePath) {
             FavoritesView()

@@ -66,8 +66,6 @@ struct ProductDetailView: View {
                 }
             }
 
-            // Bottom Navigation Bar
-            BottomNavigationView()
         }
         .background(Color.white)
         .ignoresSafeArea()

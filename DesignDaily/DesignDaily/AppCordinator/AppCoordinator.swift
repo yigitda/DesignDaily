@@ -15,7 +15,7 @@ class AppCoordinator: ObservableObject {
     @Published var profilePath = NavigationPath()
     @Published var rootPath = NavigationPath()
 
-    @Published var rootView: Destination = .login
+    @Published var rootView: Destination = .mainTabs(.home)
 
     // Shared Services
     let userService: UserServiceProtocol

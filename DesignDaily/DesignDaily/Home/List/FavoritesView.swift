@@ -52,13 +52,10 @@ struct FavoritesView: View {
             
             Spacer()
             
-            // Bottom Navigation Bar
-            BottomNavigationView()
         }
         .onAppear {
             viewModel.fetchFavoritedProducts()
         }
         .background(Color.white)
-        .ignoresSafeArea()
     }
 }

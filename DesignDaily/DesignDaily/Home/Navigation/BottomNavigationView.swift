@@ -41,7 +41,7 @@ struct BottomNavigationView: View {
             Spacer()
         }
         .padding()
-        .background(Color.white)
+        .background(Color.black)
     }
 }
 

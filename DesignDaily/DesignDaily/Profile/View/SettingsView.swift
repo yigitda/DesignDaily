@@ -34,8 +34,6 @@ struct SettingsView: View {
 
             Spacer()
             
-            // Bottom Navigation
-            BottomNavigationView()
         }
         .background(Color.white)
         .ignoresSafeArea()

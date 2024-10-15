@@ -17,6 +17,7 @@ struct FilterBarView: View {
             HStack {
                 ForEach(filters, id: \.self) { filter in
                     HStack(spacing: 5) {
+                        
                         Text(filter)
                             .padding(.horizontal)
                             .padding(.vertical, 8)
@@ -32,6 +33,7 @@ struct FilterBarView: View {
                 }
             }
             .padding(.horizontal)
+            .background(Color.gray)
         }
     }
 }

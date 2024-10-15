@@ -25,5 +25,6 @@ struct TopNavigationBar: View {
             }
         }
         .padding()
+        .background(Color.black)
     }
 }

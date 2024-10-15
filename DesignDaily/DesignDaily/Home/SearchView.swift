@@ -43,7 +43,7 @@ struct SearchView: View {
                 .padding(.horizontal)
                 .padding(.vertical, 8)
             }
-            .background(Color.black)
+            .background(Color.gray)
 
             // Categories Grid
             ScrollView {
@@ -70,8 +70,6 @@ struct SearchView: View {
                 .padding()
             }
 
-            // Bottom Navigation Bar
-            BottomNavigationView()
         }
         .background(Color.white)
         .ignoresSafeArea()

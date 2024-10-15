@@ -9,9 +9,8 @@ import Foundation
 
 class ProductService: ProductServiceProtocol {
     func fetchProducts() async throws -> [Product] {
-        // Simulate network delay
         try await Task.sleep(nanoseconds: 1_000_000_000)
-        // Return sample data
+        
         return [
             Product(
                 id: UUID(),
@@ -29,8 +28,7 @@ class ProductService: ProductServiceProtocol {
     }
 
     func fetchProductDetails(productId: UUID) async throws -> Product {
-        // Fetch the product details based on the productId
-        // For simplicity, return a sample product
+        
         return Product(
             id: productId,
             name: "Barcelona Chair",

@@ -16,12 +16,12 @@ struct ProfileEditView: View {
     let user: User
     var body: some View {
         VStack(spacing: 20) {
-            // Navigation Bar
+
             TopNavigationBar(title: "DesignDaily")
             
-            // Profile Image and Name
+
             VStack {
-                Image("anna-smith") // Replace with your asset name
+                Image("anna-smith")
                     .resizable()
                     .scaledToFill()
                     .clipShape(Circle())
@@ -31,7 +31,7 @@ struct ProfileEditView: View {
                     .font(.title)
                     .bold()
                 Button(action: {
-                    // Edit profile picture action
+                    
                 }) {
                     Image(systemName: "pencil.circle")
                         .foregroundColor(.black)
@@ -48,7 +48,7 @@ struct ProfileEditView: View {
 
             Spacer()
 
-            // Bottom Navigation
+
             BottomNavigationView()
         }
         .background(Color.white)
@@ -56,7 +56,6 @@ struct ProfileEditView: View {
     }
 }
 
-// Helper Component for Profile Sections
 struct ProfileSection: View {
     var title: String
     var content: String
@@ -69,7 +68,7 @@ struct ProfileSection: View {
                     .font(.headline)
                 Spacer()
                 Button(action: {
-                    // Edit action
+
                 }) {
                     Image(systemName: "pencil")
                         .foregroundColor(.gray)
@@ -81,7 +80,7 @@ struct ProfileSection: View {
                 .padding(.top, 5)
             
             if isList {
-                Image("lighting") // Example item image
+                Image("lighting")
                     .resizable()
                     .frame(width: 50, height: 50)
                     .cornerRadius(8)

@@ -16,14 +16,13 @@ struct ProductDetailView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header
+
             TopNavigationBar(title: "DesignDaily")
                 .background(Color.black)
                 .foregroundColor(.white)
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    // Product Image with Favorite Button
                     ZStack(alignment: .topTrailing) {
                         Image(viewModel.product.imageName)
                             .resizable()
@@ -42,13 +41,11 @@ struct ProductDetailView: View {
                         }
                     }
 
-                    // Product Title
                     Text(viewModel.product.name)
                         .font(.largeTitle)
                         .bold()
                         .padding(.horizontal)
 
-                    // Product Details
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Designer: \(viewModel.product.designerNames)")
                         Text("Date: \(viewModel.product.date)")
@@ -59,7 +56,6 @@ struct ProductDetailView: View {
                     .font(.subheadline)
                     .padding(.horizontal)
 
-                    // Product Description
                     Text(viewModel.product.description)
                         .font(.body)
                         .padding(.horizontal)

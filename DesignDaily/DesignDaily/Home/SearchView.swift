@@ -14,12 +14,12 @@ struct SearchView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header
+
             TopNavigationBar(title: "DesignDaily")
                 .background(Color.black)
                 .foregroundColor(.white)
 
-            // Filter Tags
+
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     ForEach(activeFilters, id: \.self) { filter in
@@ -27,7 +27,7 @@ struct SearchView: View {
                             Text(filter)
                                 .foregroundColor(.white)
                             Button(action: {
-                                // Remove filter action
+
                                 activeFilters.removeAll { $0 == filter }
                             }) {
                                 Image(systemName: "xmark.circle.fill")
@@ -45,12 +45,12 @@ struct SearchView: View {
             }
             .background(Color.gray)
 
-            // Categories Grid
+
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))], spacing: 16) {
                     ForEach(categories, id: \.self) { category in
                         VStack {
-                            Image(category.lowercased()) // Ensure you have corresponding images
+                            Image(category.lowercased())
                                 .resizable()
                                 .scaledToFill()
                                 .frame(height: 100)
@@ -63,7 +63,7 @@ struct SearchView: View {
                         .cornerRadius(12)
                         .shadow(radius: 2)
                         .onTapGesture {
-                            // Handle category selection
+
                         }
                     }
                 }

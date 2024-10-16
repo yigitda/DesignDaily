@@ -15,14 +15,12 @@ struct FavoritesView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            // Page Header
             TopNavigationBar(title: "DesignDaily")
             
-            // Filter Bar
             FilterBarView(filters: viewModel.activeFilters)
             
             ScrollView {
-                // Content Section
+
                 ForEach(viewModel.favoritedProducts) { product in
                     HStack {
                         Image(product.imageName)
@@ -33,7 +31,7 @@ struct FavoritesView: View {
                             Text(product.name)
                                 .font(.headline)
                             Button(action: {
-                                // Navigate to product detail
+
                                 coordinator.navigate(to: .productDetail(product), in: .favorites)
                             }) {
                                 Text("Details")

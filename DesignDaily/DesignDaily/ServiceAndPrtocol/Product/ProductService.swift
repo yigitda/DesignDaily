@@ -23,7 +23,6 @@ class ProductService: ProductServiceProtocol {
                 materials: "Leather, Stainless Steel",
                 description: "The Barcelona Chair is an icon of modern design."
             ),
-            // Add more products as needed
         ]
     }
 

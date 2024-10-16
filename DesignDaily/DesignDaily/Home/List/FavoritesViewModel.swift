@@ -37,12 +37,12 @@ class FavoritesViewModel: ObservableObject {
 extension FavoritesViewModel {
     func applyFilter(_ filter: String) {
         activeFilters.append(filter)
-        // Update favoritedProducts based on filters
+
     }
     
     func removeFilter(_ filter: String) {
         activeFilters.removeAll { $0 == filter }
-        // Update favoritedProducts based on filters
+
     }
 }
 

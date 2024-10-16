@@ -49,7 +49,7 @@ class MockProductService: ProductServiceProtocol {
         if shouldFail {
             throw NSError(domain: "TestError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Failed to fetch product details"])
         } else {
-            // For simplicity, return a sample product matching the given ID
+
             return Product(
                 id: productId,
                 name: "Mock Product",

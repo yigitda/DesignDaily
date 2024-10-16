@@ -14,7 +14,7 @@ struct SettingsView: View {
     @StateObject private var viewModel = SettingsViewModel()
     var body: some View {
         VStack(spacing: 20) {
-            // Navigation Bar
+
             TopNavigationBar(title: "DesignDaily")
             
             VStack(alignment: .leading, spacing: 15) {

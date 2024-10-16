@@ -13,14 +13,14 @@ struct ProfileView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header
+
             TopNavigationBar(title: "DesignDaily")
                 .background(Color.black)
                 .foregroundColor(.white)
 
             ScrollView {
                 VStack(spacing: 16) {
-                    // Profile Image with Edit Option
+
                     ZStack(alignment: .bottomTrailing) {
                         Image(user?.profileImageName ?? "default-profile")
                             .resizable()
@@ -29,7 +29,7 @@ struct ProfileView: View {
                             .clipShape(Circle())
                             .shadow(radius: 4)
                         Button(action: {
-                            // Edit profile picture action
+
                         }) {
                             Image(systemName: "pencil.circle.fill")
                                 .foregroundColor(.gray)
@@ -39,12 +39,12 @@ struct ProfileView: View {
                         .offset(x: -10, y: -10)
                     }
 
-                    // User Name
+
                     Text(user?.fullName ?? "Unknown User")
                         .font(.title)
                         .bold()
 
-                    // Biography Section
+
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Biography")
                             .font(.headline)
@@ -53,7 +53,7 @@ struct ProfileView: View {
                     }
                     .padding(.horizontal)
 
-                    // Contact Information
+
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Contact Information")
                             .font(.headline)
@@ -67,13 +67,13 @@ struct ProfileView: View {
                     }
                     .padding(.horizontal)
 
-                    // Lists Section
+
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Lists")
                             .font(.headline)
-                        // Example list item
+
                         HStack {
-                            Image("lighting") // Replace with actual image
+                            Image("lighting")
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .cornerRadius(8)

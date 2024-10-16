@@ -5,7 +5,7 @@
 //  Created by Yigit Dayı on 14.10.2024.
 //
 
-// FilterBarView.swift
+
 
 import SwiftUI
 

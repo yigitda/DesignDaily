@@ -33,7 +33,7 @@ class FavoritesManager: ObservableObject {
     }
     
     private func loadFavorites() {
-        // Load from UserDefaults or persistent storage
+
         if let data = UserDefaults.standard.data(forKey: "favoriteProductIDs"),
            let ids = try? JSONDecoder().decode(Set<UUID>.self, from: data) {
             favoriteProductIDs = ids
@@ -41,7 +41,7 @@ class FavoritesManager: ObservableObject {
     }
     
     private func saveFavorites() {
-        // Save to UserDefaults or persistent storage
+
         if let data = try? JSONEncoder().encode(favoriteProductIDs) {
             UserDefaults.standard.set(data, forKey: "favoriteProductIDs")
         }

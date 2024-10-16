@@ -26,8 +26,8 @@ class LoginViewModel: LoginViewModelProtocol {
         defer { isLoading = false }
 
         do {
-            let user = try await userService.login(email: email, password: password)
-            // Handle successful login
+            _ = try await userService.login(email: email, password: password)
+
             await MainActor.run {
                 coordinator?.isAuthenticated = true
             }

@@ -5,7 +5,7 @@
 //  Created by Yigit Dayı on 8.10.2024.
 //
 
-// BottomNavigationView.swift
+
 
 import SwiftUI
 

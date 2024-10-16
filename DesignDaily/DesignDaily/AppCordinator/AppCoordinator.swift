@@ -8,7 +8,7 @@
 import SwiftUI
 
 class AppCoordinator: ObservableObject {
-    // Navigation paths for each tab
+
     @Published var homePath = NavigationPath()
     @Published var searchPath = NavigationPath()
     @Published var favoritesPath = NavigationPath()
@@ -17,11 +17,11 @@ class AppCoordinator: ObservableObject {
 
     @Published var rootView: Destination = .mainTabs(.home)
 
-    // Shared Services
+
     let userService: UserServiceProtocol
     let productService: ProductServiceProtocol
 
-    // Authentication State
+
     @Published var isAuthenticated: Bool = false {
         didSet {
             if isAuthenticated {
@@ -33,17 +33,15 @@ class AppCoordinator: ObservableObject {
         }
     }
 
-    // Current User
+
     @Published var currentUser: User?
 
-    // Initializer
     init(userService: UserServiceProtocol = UserService(),
          productService: ProductServiceProtocol = ProductService()) {
         self.userService = userService
         self.productService = productService
     }
 
-    // Navigation methods
     
     func navigate(to destination: Destination) {
         rootPath.append(destination)

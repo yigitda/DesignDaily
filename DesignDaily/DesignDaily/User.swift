@@ -14,5 +14,4 @@ struct User: Identifiable, Hashable {
     var biography: String
     var contactInfo: String
     var profileImageName: String
-    // Add other user-related properties as needed
 }

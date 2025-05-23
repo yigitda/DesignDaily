@@ -26,10 +26,14 @@ struct CoordinatorView: View {
             LoginView(viewModel: LoginViewModel(userService: coordinator.userService, coordinator: coordinator))
                 .environmentObject(coordinator)
         case .signUpStep1:
-            SignUpStep1View(viewModel: SignUpViewModel(userService: coordinator.userService, coordinator: coordinator))
+            let viewModel = coordinator.signUpViewModel ?? SignUpViewModel(userService: coordinator.userService, coordinator: coordinator)
+            coordinator.signUpViewModel = viewModel
+            SignUpStep1View(viewModel: viewModel)
                 .environmentObject(coordinator)
         case .signUpStep2:
-            SignUpStep2View(viewModel: SignUpViewModel(userService: coordinator.userService, coordinator: coordinator))
+            let viewModel = coordinator.signUpViewModel ?? SignUpViewModel(userService: coordinator.userService, coordinator: coordinator)
+            coordinator.signUpViewModel = viewModel
+            SignUpStep2View(viewModel: viewModel)
                 .environmentObject(coordinator)
         case .listsView:
             ListsView(viewModel: ListsViewModel(productService: coordinator.productService))

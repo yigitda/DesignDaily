@@ -11,6 +11,9 @@ class AppCoordinator: ObservableObject {
     @Published var path = NavigationPath()
     @Published var rootView: Destination = .listsView
 
+    // Shared ViewModels
+    var signUpViewModel: SignUpViewModel?
+
     // Shared Services
     let userService: UserServiceProtocol
     let productService: ProductServiceProtocol
@@ -20,6 +23,9 @@ class AppCoordinator: ObservableObject {
         didSet {
             rootView = isAuthenticated ? .listsView : .login
             resetNavigation()
+            if isAuthenticated {
+                signUpViewModel = nil
+            }
         }
     }
 

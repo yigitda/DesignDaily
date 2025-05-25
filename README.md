@@ -7,6 +7,7 @@ Project Overview
 Architecture
 MVVM Pattern
 Coordinator Pattern
+Extending the AppCoordinator
 SOLID Principles
 Key Concepts and Implementations
 Models
@@ -43,6 +44,23 @@ The Coordinator pattern manages the navigation flow of the application, decoupli
 
 AppCoordinator: Centralizes navigation and routing.
 Destination Enum: Defines all possible navigation destinations.
+
+Extending the AppCoordinator
+The AppCoordinator owns the navigation paths and decides which view hierarchy is
+displayed. To add a new screen or tab:
+
+1. Add a new case to the `Destination` enum. If it should be a tab, also add a
+   case to the `MainTab` enum.
+2. Declare a `NavigationPath` for the tab in `AppCoordinator` to keep its
+   navigation history.
+3. Update `navigate(to:in:)` and `goBack(in:)` to route and pop in the new tab.
+4. Include the tab in `MainTabView` and present its initial view from
+   `destinationView(for:)`.
+5. Authentication state is handled by `isAuthenticated`. When this flag changes,
+   `rootView` switches between the login flow and the main tabs and
+   `resetNavigation()` clears all paths. Add your new path to that reset logic so
+   users see a clean state after logging in or out.
+
 SOLID Principles
 The app adheres to the SOLID principles:
 

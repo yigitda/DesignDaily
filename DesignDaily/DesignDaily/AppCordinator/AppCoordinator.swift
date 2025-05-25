@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+// MARK: - Coordinator Overview
+// The AppCoordinator drives all navigation in the application. Each tab has its
+// own `NavigationPath` so the stacks remain isolated. `isAuthenticated`
+// determines whether the user sees the login flow or the main tab interface.
+// When adding a new tab or flow:
+// 1. Add a case to `Destination` and possibly `MainTab`.
+// 2. Create a `NavigationPath` property to hold the new stack.
+// 3. Update `navigate(to:in:)` and `goBack(in:)` to handle the new case.
+// 4. Include the tab in `resetNavigation()` so paths clear when authentication
+//    changes.
+
 class AppCoordinator: ObservableObject {
 
     @Published var homePath = NavigationPath()

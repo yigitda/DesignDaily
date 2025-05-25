@@ -3,6 +3,7 @@ Welcome to the DesignDaily app! This README provides an overview of the project,
 
 Table of Contents
 Introduction
+Getting Started
 Project Overview
 Architecture
 MVVM Pattern
@@ -22,6 +23,24 @@ Best Practices
 Additional Resources
 Introduction
 DesignDaily is a SwiftUI application that demonstrates modern app architecture using the MVVM pattern, Coordinator pattern, SOLID principles, and Swift's concurrency model with async/await. The app focuses on clean code, scalability, and testability.
+
+Getting Started
+Prerequisites
+ - Xcode 15 or later
+ - Swift 5.9 or later
+
+Setup
+ 1. Clone the repository using `git clone <repo-url>`.
+ 2. Open `DesignDaily/DesignDaily.xcodeproj` in Xcode.
+ 3. Select the `DesignDaily` target and choose a simulator or device.
+ 4. Build and run the app using **Product > Run** or `Cmd+R`.
+
+Running Tests
+ 1. In Xcode select **Product > Test** or press `Cmd+U`.
+ 2. The test suites in `DesignDailyTests` and `DesignDailyUITests` will execute.
+
+Dependencies
+  - The project relies solely on SwiftUI and other Apple frameworks. No external packages are required.
 
 Project Overview
 The app includes the following features:
